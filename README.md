@@ -2,6 +2,8 @@
 
 Adds a button to the commit dialog (right above the commit message field), that loads a random commit message from [whatthecommit.com](http://www.whatthecommit.com).
 
+Please rate this plugin in the [Plugin Repository](http://plugins.jetbrains.com/plugin/7536)
+
 ## Installation
 Install this plugin via the plugin manager in IntelliJ (File &rarr; Settings &rarr; Plugins &rarr; Browse repositories &rarr; What The Commit).
 

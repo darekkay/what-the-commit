@@ -41,7 +41,7 @@
     ]]>
     </change-notes>
 
-    <idea-version since-build="111"/>
+    <idea-version since-build="135.1230"/>
     <depends>com.intellij.modules.vcs</depends>
 
     <actions>
