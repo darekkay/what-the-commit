@@ -59,7 +59,6 @@ public class WhatTheCommitAction extends AnAction {
         }
     }
 
-    @Nullable
     public String loadCommitMessage(final String url) {
         final FutureTask<String> downloadTask = new FutureTask<String>(new Callable<String>() {
             public String call() {
