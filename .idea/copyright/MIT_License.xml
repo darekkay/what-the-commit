@@ -1,0 +1,9 @@
+<component name="CopyrightManager">
+  <copyright>
+    <option name="notice" value="Copyright &amp;#36;today.year Darek Kay &lt;darekkay@eclectide.com&gt;&#10;&#10;MIT license&#10;&#10;Permission is hereby granted, free of charge, to any person obtaining a copy of this&#10;software and associated documentation files (the &quot;Software&quot;), to deal in the Software&#10;without restriction, including without limitation the rights to use, copy, modify,&#10;merge, publish, distribute, sublicense, and/or sell copies of the Software, and to&#10;permit persons to whom the Software is furnished to do so, subject to the following&#10;conditions:&#10;&#10;The above copyright notice and this permission notice shall be included in all copies&#10;or substantial portions of the Software.&#10;&#10;THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,&#10;INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A&#10;PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT&#10;HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF&#10;CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE&#10;OR THE USE OR OTHER DEALINGS IN THE SOFTWARE." />
+    <option name="keyword" value="Copyright" />
+    <option name="allowReplaceKeyword" value="" />
+    <option name="myName" value="MIT License" />
+    <option name="myLocal" value="true" />
+  </copyright>
+</component>
