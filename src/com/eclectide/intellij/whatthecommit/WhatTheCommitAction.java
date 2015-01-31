@@ -26,6 +26,7 @@ package com.eclectide.intellij.whatthecommit;
 import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.application.ApplicationManager;
+import com.intellij.openapi.project.DumbAware;
 import com.intellij.openapi.vcs.CommitMessageI;
 import com.intellij.openapi.vcs.VcsDataKeys;
 import com.intellij.openapi.vcs.ui.Refreshable;
@@ -43,7 +44,7 @@ import java.util.concurrent.TimeoutException;
 /**
  * @author darekkay
  */
-public class WhatTheCommitAction extends AnAction {
+public class WhatTheCommitAction extends AnAction implements DumbAware {
 
     private static final String URL = "http://whatthecommit.com/index.txt";
     private static final int TIMEOUT_SECONDS = 5;

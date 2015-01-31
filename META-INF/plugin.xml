@@ -24,7 +24,7 @@
 <idea-plugin version="2">
     <id>com.eclectide.intellij.whatthecommit</id>
     <name>What The Commit</name>
-    <version>1.0</version>
+    <version>1.1</version>
     <vendor email="darekkay@eclectide.com" url="http://www.eclectide.com">Eclectide</vendor>
 
     <description><![CDATA[
@@ -33,11 +33,14 @@
     ]]></description>
 
     <change-notes><![CDATA[
+    <p>1.1</p>
+    <ul>
+        <li>Fixed: Plugin doesn't work while indexing files</li>
+    </ul>
     <p>1.0</p>
     <ul>
         <li>Initial release</li>
     </ul>
-    <p></p>
     ]]>
     </change-notes>
 
