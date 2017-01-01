@@ -15,6 +15,6 @@ Just push the button ;-)
 
 ## License
 
-Copyright 2014 Darek Kay <darekkay@eclectide.com>  
+Copyright 2014 Darek Kay <hello@darekkay.com>  
 
 This project and its contents are open source under the [MIT license](LICENSE.txt).
