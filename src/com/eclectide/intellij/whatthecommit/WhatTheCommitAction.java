@@ -26,16 +26,18 @@ package com.eclectide.intellij.whatthecommit;
 import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.application.ApplicationManager;
+import com.intellij.openapi.util.io.StreamUtil;
+import com.intellij.util.net.HttpConfigurable;
 import com.intellij.openapi.project.DumbAware;
 import com.intellij.openapi.vcs.CommitMessageI;
 import com.intellij.openapi.vcs.VcsDataKeys;
 import com.intellij.openapi.vcs.ui.Refreshable;
-import org.apache.commons.httpclient.HttpClient;
-import org.apache.commons.httpclient.HttpStatus;
-import org.apache.commons.httpclient.methods.GetMethod;
+import com.intellij.util.net.IOExceptionDialog;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.io.IOException;
+import java.net.HttpURLConnection;
 import java.util.concurrent.Callable;
 import java.util.concurrent.FutureTask;
 import java.util.concurrent.TimeUnit;
@@ -49,7 +51,7 @@ public class WhatTheCommitAction extends AnAction implements DumbAware {
     private static final String URL = "http://whatthecommit.com/index.txt";
     private static final int TIMEOUT_SECONDS = 5;
 
-    public void actionPerformed(AnActionEvent e) {
+    public void actionPerformed(@NotNull AnActionEvent e) {
         final CommitMessageI checkinPanel = getCheckinPanel(e);
         if (checkinPanel == null)
             return;
@@ -60,19 +62,37 @@ public class WhatTheCommitAction extends AnAction implements DumbAware {
         }
     }
 
+    private String readUrlContent(String urlString) {
+        HttpConfigurable httpConfigurable = HttpConfigurable.getInstance();
+
+        HttpURLConnection connection = null;
+
+        try {
+            connection = httpConfigurable.openHttpConnection(urlString);
+
+            String text = StreamUtil.readText(connection.getInputStream(), "UTF-8");
+            return text.trim();
+        } catch (IOException e) {
+            throw new RuntimeException(e.getMessage(), e);
+        } finally {
+            if (connection != null) {
+                connection.disconnect();
+            }
+        }
+    }
+
     public String loadCommitMessage(final String url) {
         final FutureTask<String> downloadTask = new FutureTask<String>(new Callable<String>() {
-            public String call() {
-                final HttpClient client = new HttpClient();
-                final GetMethod getMethod = new GetMethod(url);
-                try {
-                    final int statusCode = client.executeMethod(getMethod);
-                    if (statusCode != HttpStatus.SC_OK)
-                        throw new RuntimeException("Connection error (HTTP status = " + statusCode + ")");
-                    return getMethod.getResponseBodyAsString();
-                } catch (IOException e) {
-                    throw new RuntimeException(e.getMessage(), e);
-                }
+            public String call() {		
+				try {
+				  final HttpConfigurable httpConfigurable = HttpConfigurable.getInstance();
+				  httpConfigurable.prepareURL(url);
+				} catch (IOException ioe) {
+				  IOExceptionDialog.showErrorDialog("Error", String.format("Unable to connect to \"%s\". Make sure your proxy settings are correct.", url));
+				  return null;
+				}
+
+				return readUrlContent(url);
             }
         });
 
@@ -103,10 +123,6 @@ public class WhatTheCommitAction extends AnAction implements DumbAware {
         if (data instanceof CommitMessageI) {
             return (CommitMessageI) data;
         }
-        CommitMessageI commitMessageI = VcsDataKeys.COMMIT_MESSAGE_CONTROL.getData(e.getDataContext());
-        if (commitMessageI != null) {
-            return commitMessageI;
-        }
-        return null;
+        return VcsDataKeys.COMMIT_MESSAGE_CONTROL.getData(e.getDataContext());
     }
 }
