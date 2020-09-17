@@ -1,5 +1,5 @@
 <!--
-  ~ Copyright 2014 Darek Kay <darekkay@eclectide.com>
+  ~ Copyright 2014 Darek Kay <helloo@darekkay.com>
   ~
   ~ MIT license
   ~
@@ -25,7 +25,7 @@
     <id>com.eclectide.intellij.whatthecommit</id>
     <name>What The Commit</name>
     <version>1.2</version>
-    <vendor email="darekkay@eclectide.com" url="http://www.eclectide.com">Eclectide</vendor>
+    <vendor email="hello@darekkay.com" url="https://darekkay.com">Darek Kay</vendor>
 
     <description><![CDATA[
     Integration for whatthecommit.com
