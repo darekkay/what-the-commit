@@ -22,7 +22,7 @@ import java.util.concurrent.TimeoutException;
 
 public class WhatTheCommitAction extends AnAction implements DumbAware {
 
-    private static final String URL = "http://whatthecommit.com/index.txt";
+    private static final String URL = "https://whatthecommit.com/index.txt";
     private static final int TIMEOUT_SECONDS = 5;
 
     public void actionPerformed(@NotNull AnActionEvent e) {

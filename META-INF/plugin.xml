@@ -21,10 +21,10 @@
   ~ OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
   -->
 
-<idea-plugin version="2">
+<idea-plugin>
     <id>com.eclectide.intellij.whatthecommit</id>
     <name>What The Commit</name>
-    <version>1.2</version>
+    <version>1.3</version>
     <vendor email="hello@darekkay.com" url="https://darekkay.com">Darek Kay</vendor>
 
     <description><![CDATA[
@@ -33,6 +33,10 @@
     ]]></description>
 
     <change-notes><![CDATA[
+    <p>1.3</p>
+    <ul>
+        <li>Change http link to https</li>
+    </ul>
     <p>1.2</p>
     <ul>
         <li>Add IntelliJ proxy support</li>
